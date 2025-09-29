@@ -1,0 +1,49 @@
+{
+  "rules": [
+    {
+      "rule_id": "LM_001",
+      "rule_name": "MRP Declaration",
+      "rule_description": "MRP must be stated and include the phrase 'inclusive of all taxes' or a close synonym.",
+      "field": "MRP",
+      "validation_type": "regex_presence",
+      "pattern": "(MRP|M\\.R\\.P|Maximum Retail Price)[\\s\\S]*?\\b(\\d+(\\.\\d{1,2})?)\\b[\\s\\S]*?(inclusive of all taxes|incl\\. of all taxes|taxes included)",
+      "is_critical": true
+    },
+    {
+      "rule_id": "LM_002",
+      "rule_name": "Net Quantity Declaration",
+      "rule_description": "Net quantity must be declared in standard units.",
+      "field": "Net_Quantity",
+      "validation_type": "regex_presence",
+      "pattern": "(Net Quantity|Net Qty|Net Wt|Net Weight|Net Vol)[\\s\\S]*?\\b(\\d+(\\.\\d{1,2})?)\\s*(kg|g|ml|l|mg|L|KG|G|ML)\\b",
+      "is_critical": true
+    },
+    {
+      "rule_id": "LM_003",
+      "rule_name": "Country of Origin",
+      "rule_description": "Country of Origin must be declared.",
+      "field": "Country_Of_Origin",
+      "validation_type": "regex_presence",
+      "pattern": "(Country of Origin|Made in|Manufactured in|Origin)[\\s\\S]*?(India|IN|IND|Indian|Other)",
+      "is_critical": true
+    },
+    {
+      "rule_id": "LM_004",
+      "rule_name": "Manufacturer Details",
+      "rule_description": "Manufacturer/Packer name and address must be provided.",
+      "field": "Manufacturer_Details",
+      "validation_type": "keyword_presence",
+      "keywords": ["manufacturer", "packer", "producer", "made by", "packed by"],
+      "is_critical": false
+    },
+    {
+      "rule_id": "LM_005",
+      "rule_name": "Consumer Care Details",
+      "rule_description": "Consumer care information must be provided.",
+      "field": "Consumer_Care",
+      "validation_type": "keyword_presence",
+      "keywords": ["customer care", "consumer care", "contact", "helpline", "support"],
+      "is_critical": false
+    }
+  ]
+}
