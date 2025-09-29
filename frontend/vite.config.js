@@ -11,5 +11,11 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  // Add this for Vercel build optimization
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    chunkSizeWarningLimit: 1600
   }
 })
